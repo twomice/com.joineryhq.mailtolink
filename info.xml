@@ -1,0 +1,21 @@
+<?xml version="1.0"?>
+<extension key="com.joineryhq.mailtolink" type="module">
+  <file>mailtolink</file>
+  <name>MailtoLink</name>
+  <description>Converts email addresses to clickable "mailto:" links, on search results and contact summary view.</description>
+  <license>GPL-3.0</license>
+  <maintainer>
+    <author>Allen Shaw</author>
+    <email>allen@JoineryHQ.com</email>
+  </maintainer>
+  <releaseDate>2016-07-07</releaseDate>
+  <version>1.0</version>
+  <develStage>alpha</develStage>
+  <compatibility>
+    <ver>4.2</ver>
+  </compatibility>
+  <comments></comments>
+  <civix>
+    <namespace>CRM/Mailtolink</namespace>
+  </civix>
+</extension>
