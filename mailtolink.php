@@ -22,10 +22,10 @@ function mailtolink_civicrm_buildForm($formName, &$form) {
       'emailHeaderLabels' => array(),
     );
 
-    if (!empty($form->_submitValues['uf_group_id']) && $form->_submitValues['uf_group_id'] > 0) {
+    if ($ufGroupId = CRM_Utils_Array::value('uf_group_id', $form->_formValues, CRM_Utils_Array::value('uf_group_id', $form->_submitValues))) {
       $js_vars['isProfileResults'] = TRUE;
       $api_params = array (
-        'uf_group_id' => $form->_submitValues['uf_group_id'],
+        'uf_group_id' => $ufGroupId,
         'field_name' => 'email',
         'is_active' => 1,
       );
