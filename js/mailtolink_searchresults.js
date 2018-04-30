@@ -23,7 +23,7 @@ CRM.$(document).ready(function($){
       for (var i in emailColumnPositions) {
         $(table).find('tbody tr td:nth-child('+ emailColumnPositions[i] +')').each(function(idx, el){
           var emailElement = $(el)
-          var email = emailElement.html().trim();
+          var email = emailElement.text().trim();
           if (email != '') {
             emailElement.html('<a href="mailto:'+ email +'">' + email + '</a>')
           }
