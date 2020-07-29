@@ -7,7 +7,6 @@ var mailtolink = {
   replaceLinks: function() {
     CRM.$('.crm-contact_email a.crm-popup').each(function() {
       var email = CRM.$(this).text().trim();
-      console.log('email', email)
       var emailLink = CRM.$('<a/>', {
         class: 'mailto-link',
         href: 'mailto:' + email,
@@ -18,12 +17,11 @@ var mailtolink = {
       CRM.$(this).remove();
     });
   }
-}
-
+};
 
 CRM.$(document).ready(function(){
   mailtolink.replaceLinks();
   CRM.$('div#email-block').on('crmLoad', function(e, data) {
     mailtolink.replaceLinks();
-  })
-})
+  });
+});

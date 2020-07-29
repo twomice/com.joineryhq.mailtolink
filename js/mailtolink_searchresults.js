@@ -5,45 +5,44 @@
 
 
 CRM.$(document).ready(function($){
-  var table = $('input#toggleSelect').closest('table')
+  var table = $('input#toggleSelect').closest('table');
   var emailColumnPositions = [];
 
   if (CRM.vars.mailtolink.emailHeaderLabels.length > 0) {
     for (var i in CRM.vars.mailtolink.emailHeaderLabels)
     $(table).find('thead th').each(function(idx, el){
       if($(el).children('a').text().trim() == CRM.vars.mailtolink.emailHeaderLabels[i]) {
-        emailColumnPositions.push((idx + 1))
+        emailColumnPositions.push((idx + 1));
       }
-    })
+    });
   }
-
 
   if (emailColumnPositions.length > 0) {
     if (CRM.vars.mailtolink.isProfileResults) {
-      for (var i in emailColumnPositions) {
-        $(table).find('tbody tr td:nth-child('+ emailColumnPositions[i] +')').each(function(idx, el){
-          var emailElement = $(el)
+      for (var j in emailColumnPositions) {
+        $(table).find('tbody tr td:nth-child('+ emailColumnPositions[j] +')').each(function(idx, el){
+          var emailElement = $(el);
           var email = emailElement.text().trim();
           if (email != '') {
-            emailElement.html('<a href="mailto:'+ email +'">' + email + '</a>')
+            emailElement.html('<a href="mailto:'+ email +'">' + email + '</a>');
           }
-        })
+        });
       }
     }
     else {
-      for (var i in emailColumnPositions) {
-        $(table).find('tbody tr td:nth-child('+ emailColumnPositions[i] +') span').each(function(idx, el){
-          var emailElement = $(el)
-          var doNotEmail = emailElement.find('span.do-not-email').length
+      for (var ij in emailColumnPositions) {
+        $(table).find('tbody tr td:nth-child('+ emailColumnPositions[ij] +') span').each(function(idx, el){
+          var emailElement = $(el);
+          var doNotEmail = emailElement.find('span.do-not-email').length;
           if (!doNotEmail) {
             var email = emailElement.prop('title').trim();
             var emailTruncated = emailElement.text().trim();
             if (email != '') {
-              emailElement.html('<a href="mailto:'+ email +'">' + emailTruncated + '</a>')
+              emailElement.html('<a href="mailto:'+ email +'">' + emailTruncated + '</a>');
             }
           }
-        })
+        });
       }
     }
   }
-})
+});
