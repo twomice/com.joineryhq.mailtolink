@@ -37,7 +37,7 @@ function mailtolink_civicrm_buildForm($formName, &$form) {
       }
     }
     else {
-      $js_vars['emailHeaderLabels'][] = ts('Email');
+      $js_vars['emailHeaderLabels'][] = E::ts('Email');
     }
 
     CRM_Core_Resources::singleton()->addVars('mailtolink', $js_vars);
