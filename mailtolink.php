@@ -1,6 +1,7 @@
 <?php
 
 require_once 'mailtolink.civix.php';
+use CRM_Mailtolink_ExtensionUtil as E;
 
 function mailtolink_civicrm_pageRun(&$page) {
   $supported_pages = array(
