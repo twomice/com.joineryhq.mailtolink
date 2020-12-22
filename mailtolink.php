@@ -1,6 +1,7 @@
 <?php
 
 require_once 'mailtolink.civix.php';
+use CRM_Mailtolink_ExtensionUtil as E;
 
 function mailtolink_civicrm_pageRun(&$page) {
   $supported_pages = array(
@@ -37,7 +38,7 @@ function mailtolink_civicrm_buildForm($formName, &$form) {
       }
     }
     else {
-      $js_vars['emailHeaderLabels'][] = ts('Email');
+      $js_vars['emailHeaderLabels'][] = E::ts('Email');
     }
 
     CRM_Core_Resources::singleton()->addVars('mailtolink', $js_vars);
