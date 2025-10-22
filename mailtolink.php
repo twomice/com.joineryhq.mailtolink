@@ -23,7 +23,7 @@ function mailtolink_civicrm_buildForm($formName, &$form) {
       'emailHeaderLabels' => array(),
     );
 
-    if ($ufGroupId = $form->_formValues['uf_group_id'] ?? $form->_submitValues['uf_group_id'] ?? NULL) {
+    if ($ufGroupId = ($form->_formValues['uf_group_id'] ?? $form->_submitValues['uf_group_id'] ?? NULL)) {
       $js_vars['isProfileResults'] = TRUE;
       $api_params = array(
         'uf_group_id' => $ufGroupId,
