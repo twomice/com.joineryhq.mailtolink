@@ -4,32 +4,32 @@ require_once 'mailtolink.civix.php';
 use CRM_Mailtolink_ExtensionUtil as E;
 
 function mailtolink_civicrm_pageRun(&$page) {
-  $supported_pages = array(
+  $supported_pages = [
     'CRM_Contact_Page_View_Summary',
-  );
+  ];
   if (in_array($page->getVar('_name'), $supported_pages)) {
     CRM_Core_Resources::singleton()->addScriptFile('com.joineryhq.mailtolink', 'js/mailtolink_contactsummary.js');
   }
 }
 
 function mailtolink_civicrm_buildForm($formName, &$form) {
-  $supported_forms = array(
+  $supported_forms = [
     'CRM_Contact_Form_Search_Basic',
     'CRM_Contact_Form_Search_Advanced',
-  );
+  ];
   if (in_array($formName, $supported_forms)) {
-    $js_vars = array(
+    $js_vars = [
       'isProfileResults' => FALSE,
-      'emailHeaderLabels' => array(),
-    );
+      'emailHeaderLabels' => [],
+    ];
 
     if ($ufGroupId = ($form->_formValues['uf_group_id'] ?? $form->_submitValues['uf_group_id'] ?? NULL)) {
       $js_vars['isProfileResults'] = TRUE;
-      $api_params = array(
+      $api_params = [
         'uf_group_id' => $ufGroupId,
         'field_name' => 'email',
         'is_active' => 1,
-      );
+      ];
       $result = civicrm_api3('uf_field', 'get', $api_params);
       if (!empty($result['values'])) {
         foreach ($result['values'] as $value) {
